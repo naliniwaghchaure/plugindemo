@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Filter Planning Page - Data Loader & Exporter Plugin</title>
+<meta name="decorator" content="atl.admin">
+<style>
+.dropbtn {
+  background-color: #0747a6;
+  color: white;
+  padding: 13px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  background-color :#0747a6;
+  float: right!important;
+}
+
+.dropdown-content {
+  display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+</head>
+<body>
+
+<h2>Done Issues</h2>
+<div class="dropdown" style="float:right;">
+  <button onclick="myFunction()" class="dropbtn">Export</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#about">XML</a>
+    <a href="#base">Word</a>
+    <a href="#blog">Printable</a>
+    <a href="#contact">Better Excel(All Fields)</a>
+    <a href="#custom">Worklogs(All Fields)</a>
+    <a href="#support">Comments(All Fields)</a>
+    <a href="#tools">History(All Fields)</a>
+    <a href="#contact">Basic Export(Excel)</a>
+    <a href="#custom">PDF</a>
+    <a href="#support">PDF(All Fields)</a>
+    <a href="#tools">Task Specification(PDF)</a>
+    <a href="#contact">Task Health(PDF)</a>
+    <a href="#custom"> Work Summary(PDF)</a>
+    <a href="#support">Timesheet(PDF)</a>
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+

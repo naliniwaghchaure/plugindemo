@@ -1,0 +1,236 @@
+<html>
+<head>
+    <title>Planning Page - Data Loader Plugin</title>
+    <meta name="decorator" content="atl.admin">
+</head>
+<body>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    }
+
+    table {
+      display: grid;
+      border-collapse: collapse;
+      min-width: 100%;
+      grid-template-columns:
+        minmax(150px, 1fr)
+        minmax(150px, 1.67fr)
+        minmax(150px, 1.67fr)
+        minmax(150px, 1.67fr)
+        minmax(150px, 3.33fr)
+    }
+
+    thead,
+    tbody,
+    tr {
+      display: contents;
+    }
+
+    th,
+    td {
+      padding: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: #6c7ae0;
+      text-align: left;
+      font-weight: normal;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    th:last-child {
+      border: 0;
+    }
+
+    td {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: #808080;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8f6ff;
+    }
+
+    .btn {
+      border: none;
+      background-color: inherit;
+      padding: 14px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn:hover {background: #eee;}
+
+    .success {color: green;}
+    .info {color: dodgerblue;}
+    .warning {color: orange;}
+    .danger {color: red;}
+    .default {color: black;}
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: red;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    </style>
+</head>
+<h1>Data Loader Plugin - Planning Page</h1>
+<p>successfully created webwork module to handle JIRA URL, Authentication and Authorisation easily.<br></p><br>
+
+<div class="navbar">
+  <div class="dropdown">
+    <button class="dropbtn">Menu
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/platform.vm">Jira Server Platform Data</a>
+      <a href="#">Jira Software Data</a>
+      <a href="#">Jira Service Desk</a>
+    </div>
+  </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Project: All
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">project1</a>
+        <a href="#">project2</a>
+      </div>
+    </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Type: All
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">All Standard Issue Types</a>
+          <a href="#">All Sub-Task Issue Types</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+             <button class="dropbtn">Assignee: All
+               <i class="fa fa-caret-down"></i>
+             </button>
+             <div class="dropdown-content">
+               <a href="#">current User</a>
+               <a href="#">Unassigned</a>
+             </div>
+       </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">+ More
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Recent Criteria</a>
+          <a href="#">All Criteria</a>
+        </div>
+      </div>
+
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project Name</th>
+      <th>Project Key</th>
+      <th>Style</th>
+      <th>Avtar</th>
+    </tr>
+  </thead>
+</table>
+<br>
+<p>
+<button class="btn warning"  onclick="myFunction()" style="background-color: #000000;">Export</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+</p>
+</body>
+</html>
+

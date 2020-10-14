@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param> 
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="DataLoaderAndExporter"/>  
+  <!-- add our web resources -->  
+  <web-resource key="DataLoaderAndExporter-resources" name="DataLoaderAndExporter Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="DataLoaderAndExporter.css" location="/css/DataLoaderAndExporter.css"/>  
+    <resource type="download" name="DataLoaderAndExporter.js" location="/js/DataLoaderAndExporter.js"/>  
+    <resource type="download" name="images/" location="/images"/>  
+    <context>DataLoaderAndExporter</context> 
+  </web-resource>  
+  <webwork1 key="data-loader-exporter-webwork-module" name="DataLoaderExporterWebworkModule" i18n-name-key="data-loader-exporter-webwork-module.name"> 
+    <description key="data-loader-exporter-webwork-module.description">The DataLoaderExporterWebworkModule Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.DataLoaderExporterWebworkModuleAction" alias="DataLoaderExporterWebworkModuleAction"> 
+        <view name="success">/templates/data-loader-exporter-webwork-module/success.vm</view>  
+        <view name="input">/templates/data-loader-exporter-webwork-module/input.vm</view>  
+        <view name="error">/templates/data-loader-exporter-webwork-module/error.vm</view>  
+        <view name="platform">/templates/data-loader-exporter-webwork-module/platform.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <web-section key="admin_data_loader_planning_section" name="admin_data_loader_planning_section" location="admin_plugins_menu" weight="20" i18n-name-key="data-loader-plugin.admin.planning.page.web.section.name"> 
+    <label key="data-loader-plugin.admin.planning.page.web.section.name"/> 
+  </web-section>  
+  <web-item key="admin_data_loader_planning_webitem" name="admin_data_loader_planning_webitem" section="admin_plugins_menu/admin_data_loader_planning_section" weight="15" i18n-name-key="data-loader-plugin.admin.planning.page.web.item.name"> 
+    <label key="data-loader-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_data_loader_planning_webitem_link">/secure/DataLoaderExporterWebworkModuleAction.jspa</link> 
+  </web-item>  
+  <web-section name="My Links Main Section" i18n-name-key="my-links-main-section.name" key="my_links_section" location="my_links_link" weight="10"/>  
+  <web-item key="my_links_link" name="Link on My Links Main Section" section="system.top.navigation.bar" weight="47"> 
+    <label>Jira Filter</label>  
+    <link linkId="my_links_link">http://www.atlassian.com</link> 
+  </web-item>  
+  <web-item key="website_link" name="Company Web Site" section="my_links_link/my_links_section" weight="10"> 
+    <label>View All Filters</label>  
+    <link linkId="website_link">/secure/ViewAllFilterAction.jspa</link>
+  </web-item>  
+  <web-item key="documentation_link" name="Documentation Web Site" section="my_links_link/my_links_section" weight="10"> 
+    <label>Advanced Issue Search</label>  
+    <link linkId="documentation_link">/secure/FilterMenuWebworkPluginModuleAction.jspa</link> 
+  </web-item>  
+  <webwork1 key="filter-menu-webwork-plugin-module" name="FilterMenuWebworkPluginModule" i18n-name-key="filter-menu-webwork-plugin-module.name"> 
+    <description key="filter-menu-webwork-plugin-module.description">The FilterMenuWebworkPluginModule Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.FilterMenuWebworkPluginModuleAction" alias="FilterMenuWebworkPluginModuleAction"> 
+        <view name="success">/templates/filter-menu-webwork-plugin-module/success.vm</view>  
+        <view name="input">/templates/filter-menu-webwork-plugin-module/input.vm</view>  
+        <view name="error">/templates/filter-menu-webwork-plugin-module/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <web-section key="admin_filter_planning_section" name="admin_filter_planning_section" location="admin_plugins_menu" weight="20" i18n-name-key="filter-plugin.admin.planning.page.web.section.name"> 
+    <label key="filter-plugin.admin.planning.page.web.section.name"/> 
+  </web-section>  
+  <web-item key="admin_filter_planning_webitem" name="admin_filter_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter_planning_webitem_link">/secure/FilterMenuWebworkPluginModuleAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter1_planning_webitem" name="admin_filter1_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter1-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter1-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter1_planning_webitem_link">/secure/ReportedByMeAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter2_planning_webitem" name="admin_filter2_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter2-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter2-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter2_planning_webitem_link">/secure/AllIssuesAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter3_planning_webitem" name="admin_filter3_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter3-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter3-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter3_planning_webitem_link">/secure/OpenIssuesAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter4_planning_webitem" name="admin_filter4_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter4-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter4-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter4_planning_webitem_link">/secure/DoneIssuesAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter5_planning_webitem" name="admin_filter5_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter5-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter5-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter5_planning_webitem_link">/secure/ViewedRecentlyAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter6_planning_webitem" name="admin_filter6_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter6-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter6-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter6_planning_webitem_link">/secure/CreatedRecentlyAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter7_planning_webitem" name="admin_filter7_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter7-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter7-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter7_planning_webitem_link">/secure/ResolvedRecentlyAction.jspa</link> 
+  </web-item>  
+  <web-item key="admin_filter8_planning_webitem" name="admin_filter8_planning_webitem" section="admin_plugins_menu/admin_filter_planning_section" weight="15" i18n-name-key="filter8-plugin.admin.planning.page.web.item.name"> 
+    <label key="filter8-plugin.admin.planning.page.web.item.name"/>  
+    <link linkId="admin_filter8_planning_webitem_link">/secure/UpdatedRecentlyAction.jspa</link> 
+  </web-item>  
+  <webwork1 key="all-open-issues" name="AllOpenIssues" i18n-name-key="all-open-issues.name"> 
+    <description key="all-open-issues.description">The AllOpenIssues Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.AllOpenIssuesAction" alias="AllOpenIssuesAction"> 
+        <view name="success">/templates/all-open-issues/success.vm</view>  
+        <view name="input">/templates/all-open-issues/input.vm</view>  
+        <view name="error">/templates/all-open-issues/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="reported-by-me" name="ReportedByMe" i18n-name-key="reported-by-me.name"> 
+    <description key="reported-by-me.description">The ReportedByMe Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.ReportedByMeAction" alias="ReportedByMeAction"> 
+        <view name="success">/templates/reported-by-me/success.vm</view>  
+        <view name="input">/templates/reported-by-me/input.vm</view>  
+        <view name="error">/templates/reported-by-me/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="all-issues" name="AllIssues" i18n-name-key="all-issues.name"> 
+    <description key="all-issues.description">The AllIssues Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.AllIssuesAction" alias="AllIssuesAction"> 
+        <view name="success">/templates/all-issues/success.vm</view>  
+        <view name="input">/templates/all-issues/input.vm</view>  
+        <view name="error">/templates/all-issues/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="open-issues" name="OpenIssues" i18n-name-key="open-issues.name"> 
+    <description key="open-issues.description">The OpenIssues Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.OpenIssuesAction" alias="OpenIssuesAction"> 
+        <view name="success">/templates/open-issues/success.vm</view>  
+        <view name="input">/templates/open-issues/input.vm</view>  
+        <view name="error">/templates/open-issues/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="done-issues" name="DoneIssues" i18n-name-key="done-issues.name"> 
+    <description key="done-issues.description">The DoneIssues Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.DoneIssuesAction" alias="DoneIssuesAction"> 
+        <view name="success">/templates/done-issues/success.vm</view>  
+        <view name="input">/templates/done-issues/input.vm</view>  
+        <view name="error">/templates/done-issues/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="viewed-recently" name="ViewedRecently" i18n-name-key="viewed-recently.name"> 
+    <description key="viewed-recently.description">The ViewedRecently Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.ViewedRecentlyAction" alias="ViewedRecentlyAction"> 
+        <view name="success">/templates/viewed-recently/success.vm</view>  
+        <view name="input">/templates/viewed-recently/input.vm</view>  
+        <view name="error">/templates/viewed-recently/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="created-recently" name="CreatedRecently" i18n-name-key="created-recently.name"> 
+    <description key="created-recently.description">The CreatedRecently Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.CreatedRecentlyAction" alias="CreatedRecentlyAction"> 
+        <view name="success">/templates/created-recently/success.vm</view>  
+        <view name="input">/templates/created-recently/input.vm</view>  
+        <view name="error">/templates/created-recently/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="resolved-recently" name="ResolvedRecently" i18n-name-key="resolved-recently.name"> 
+    <description key="resolved-recently.description">The ResolvedRecently Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.ResolvedRecentlyAction" alias="ResolvedRecentlyAction"> 
+        <view name="success">/templates/resolved-recently/success.vm</view>  
+        <view name="input">/templates/resolved-recently/input.vm</view>  
+        <view name="error">/templates/resolved-recently/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="updated-recently" name="UpdatedRecently" i18n-name-key="updated-recently.name"> 
+    <description key="updated-recently.description">The UpdatedRecently Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.UpdatedRecentlyAction" alias="UpdatedRecentlyAction"> 
+        <view name="success">/templates/updated-recently/success.vm</view>  
+        <view name="input">/templates/updated-recently/input.vm</view>  
+        <view name="error">/templates/updated-recently/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <webwork1 key="view-all-filter" name="ViewAllFilter" i18n-name-key="view-all-filter.name"> 
+    <description key="view-all-filter.description">The ViewAllFilter Plugin</description>  
+    <actions> 
+      <action name="com.atlassian.tutorial.jira.webwork.ViewAllFilterAction" alias="ViewAllFilterAction"> 
+        <view name="success">/templates/view-all-filter/success.vm</view>  
+        <view name="input">/templates/view-all-filter/input.vm</view>  
+        <view name="error">/templates/view-all-filter/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>
+</atlassian-plugin>
